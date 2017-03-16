@@ -1,10 +1,39 @@
 package com.theironyard;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * For this exercise you will be making a class with one static method that is a
  * variation on the classic FizzBuzz exercises. Follow the instructions below.
  */
 public class FizzBuzz {
+    public static HashMap<String, ArrayList<Integer>> asMap(int max){
+        String key;
+        ArrayList<Integer> fizzBuzzArray = new ArrayList<>();
+        ArrayList<Integer> fizzArray = new ArrayList<>();
+        ArrayList<Integer>  buzzArray = new ArrayList<>();
+        HashMap<String, ArrayList<Integer>> map = new HashMap<>();
+
+        for(int x = 1; x <= max; x++) {
+            if (x % 3 == 0 && x % 5 == 0) {
+                fizzBuzzArray.add(x);
+            }
+            else if (x % 3 == 0) {
+                fizzArray.add(x);
+
+            } else if (x % 5 == 0) {
+                buzzArray.add(x);
+
+            }
+
+        }
+
+        map.put("fizzbuzz",fizzBuzzArray);
+        map.put("fizz",fizzArray);
+        map.put("buzz", buzzArray);
+        return map;
+    }
 
     /**
      * Create a static method named asMap(). This method implements a variation
